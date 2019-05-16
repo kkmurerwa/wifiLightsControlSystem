@@ -7,8 +7,8 @@
 #include <WiFi.h>//import wifi module
 
 //Declare the wifi settings for your router for connection
-const char* ssid = "FabLab Winam";
-const char* password = "TekTech42";
+const char* ssid = "your router name";
+const char* password = "your router password";
 
 //Declare the port to be used by the WiFi server
 WiFiServer server(80);
