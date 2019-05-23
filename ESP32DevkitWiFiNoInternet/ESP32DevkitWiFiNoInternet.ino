@@ -10,6 +10,13 @@
 const char* ssid = "FabLab Winam";
 const char* password = "TekTech42";
 
+// Set your Static IP address
+IPAddress local_IP(192, 168, 1, 105);
+// Set your Gateway IP address
+IPAddress gateway(192, 168, 1, 1);
+//Subnet mask
+IPAddress subnet(255, 255, 0, 0);
+
 //Declare the port to be used by the WiFi server
 WiFiServer server(80);
 
@@ -22,6 +29,11 @@ void setup() {
   pinMode(32, OUTPUT);
   delay(10);
 
+  // Request static IP address from the router
+  if (!WiFi.config(local_IP, gateway, subnet)) {
+    Serial.println("STA Failed to configure");
+  }
+  
   //Connect to the WiFi network
   Serial.println("Connecting");
   WiFi.begin(ssid, password);//Connect to the hotspot
